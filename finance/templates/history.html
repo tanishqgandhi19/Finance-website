@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<img src = "{{ url_for('static', filename='history.jpg') }}" alt = "image of stockshistory">
+    <main class="container p-5">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Transacted</th>
+                </tr>
+            </thead>
+            {% for row in history %}
+                <tbody>
+                        <tr>
+                            <td>{{ row['symbol'] }}</td>
+                            <td>{{ row['share'] }}</td>
+                            <td>${{ row['price'] }}</td>
+                            <td>${{ row['time'] }}</td>
+                        </tr>
+            {% endfor %}
+                </tbody>
+
+        </table>
+    </main>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <div class= "boxed">
+        <H1> A share of {{quote_name}} costs {{ quote_price }}.</H1>
+    </div>
+
+    <img src="{{ url_for('static', filename='st.jpg') }}" alt = "image of stocks" class = "quoteimg"/>
+
+
+{% endblock %}

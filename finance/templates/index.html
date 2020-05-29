@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    {% if message %}
+        <div class="alert alert-primary border text-center" role="alert">
+            {{ message }}
+        </div>
+    {% endif %}
+    <img src = "{{ url_for('static', filename='stock.jpg') }}" alt = "image of stocks">
+        <main class="container p-5">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>${{ total2 }}</td>
+            </tr>
+        </tfoot>
+        {% for row in data %}
+            <tbody>
+                    <tr>
+                        <td>{{row['symbol']}}</td>
+                        <td>{{row['name']}}</td>
+                        <td>{{row['share']}}</td>
+                        <td>${{row['current_price']}}</td>
+                        <td>${{row['ROUND(price,2)']}}</td>
+                    </tr>
+        {% endfor %}
+                <tr>
+                    <td colspan = "4"><B>CASH IN HAND</B></td>
+                    <td>${{ total }}</td>
+                </tr>
+            </tbody>
+
+    </table>
+            </main>
+
+
+{% endblock %}

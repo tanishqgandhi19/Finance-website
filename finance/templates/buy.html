@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+    <form action="/buy" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Symbol" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="share" placeholder="Shares" type="number" min="0" required>
+        </div>
+         <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+    <br>
+    <img src = "{{ url_for('static', filename='buy.jpg') }}" alt = "image of buy">
+{% endblock %}
